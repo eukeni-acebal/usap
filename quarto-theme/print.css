@@ -1,0 +1,80 @@
+/* ============================================================
+   PRINT.CSS — Estilos de impresión desde el navegador
+   Colección Areté · IES Minas BHI
+   FUENTE ÚNICA (D43, D91): lo comparten los sitios de los ocho
+   volúmenes-lengua vía `css: ../quarto-theme/print.css`. No se copia.
+   ============================================================ */
+
+@media print {
+
+  /* Ocultar elementos de navegación */
+  .navbar,
+  .sidebar,
+  #quarto-sidebar,
+  #quarto-sidebar-glass,
+  #quarto-toc-toggle,
+  nav[role="doc-toc"],
+  .nav-footer,
+  .quarto-title-banner,
+  #quarto-search,
+  .btn-download,
+  .quarto-dark-toggle {
+    display: none !important;
+  }
+
+  /* Ancho completo para el contenido */
+  #quarto-content,
+  #quarto-document-content,
+  .quarto-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Tipografía para impresión */
+  body {
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+
+  h1 { font-size: 18pt; page-break-before: always; }
+  h2 { font-size: 13pt; page-break-after: avoid; }
+  h3 { font-size: 11pt; page-break-after: avoid; }
+
+  /* Evitar cortes dentro de párrafos y encabezados */
+  p, li, blockquote {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Notas al margen: convertir a pie de página impreso */
+  .column-margin {
+    float: none;
+    width: 100%;
+    border-left: 1px solid #999;
+    padding-left: 0.5rem;
+    font-size: 9pt;
+    margin: 0.5rem 0;
+  }
+
+  /* Tablas: evitar corte de filas */
+  table {
+    page-break-inside: avoid;
+  }
+
+  /* Mostrar URL de los enlaces */
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #555;
+  }
+
+  /* Excepciones: no mostrar URL en enlaces internos */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+}
